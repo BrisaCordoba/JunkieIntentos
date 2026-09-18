@@ -1,3 +1,4 @@
+//17-09 en la segunda vuelta no vuelve a repetir los if, para arreglar
 PVector pos, vel;
 int largo = 80;
 int alto = 60;
