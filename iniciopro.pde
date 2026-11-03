@@ -1,5 +1,6 @@
 PImage fisura;
 PImage ciudadog;
+PImage poli;
 ArrayList <Obstaculo> obstaculos;
 boolean is_w = false;
 boolean is_a = false;
@@ -8,13 +9,20 @@ boolean is_d = false;
 
 Jugador jugador;
 Fondo fondo;
+Policia policia;
 
 void setup() {
-  size (1100, 900);
+  size (900, 800);
   jugador = new Jugador();
   fondo = new Fondo();
+  policia = new Policia();
+
   fisura = loadImage("fisura.png");
   ciudadog = loadImage("ciudadog.jpg");
+  poli = loadImage("poli.png");
+
+
+
   obstaculos = new ArrayList<Obstaculo>();
   Crearmapadeobstaculos();
 }
@@ -23,9 +31,13 @@ void draw() {
   background(255);
   fondo.mostrar();
 
-
   jugador.actualizar();
   jugador.mostrar();
+
+  policia.actualizar();
+  policia.mostrar();
+
+
   for (Obstaculo o : obstaculos) {
     o.mostrar();
   }
@@ -44,9 +56,9 @@ void keyReleased () {
   if (key == 'd' || key == 'D') is_d = false;
 }
 void   Crearmapadeobstaculos() {
-  obstaculos.add(new Obstaculo(10, 10, 89, 62));  
-  obstaculos.add(new Obstaculo(10, 147, 88, 415));
-  obstaculos.add(new Obstaculo(10, 497, 90, 722));
+  obstaculos.add(new Obstaculo(0, 0, 89, 62));
+  obstaculos.add(new Obstaculo(0, 138, 88, 415));
+  obstaculos.add(new Obstaculo(0, 486, 90, 722));
   obstaculos.add(new Obstaculo(10, 818, 90, 818));
 
   obstaculos.add(new Obstaculo(178, 10, 367, 63));
