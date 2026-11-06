@@ -1,8 +1,8 @@
 class Policia {
   PVector pos, vel;
   int ancho = 60;
-  int alto = 80;
-  int vx = 6;
+  int alto = 75;
+  float vx = 4.5;
   int vy = 0;
 
   Policia() {
