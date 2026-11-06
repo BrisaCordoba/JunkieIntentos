@@ -5,11 +5,12 @@ class Obstaculo {
   PVector posFinal;
 
 
+
   Obstaculo(float xInicial, float yInicial, float xFinal, float yFinal) {
-    posInicial = new PVector(xInicial, yInicial);
-    posFinal = new PVector(xFinal, yFinal);
-    ancho = xFinal - xInicial;
-    alto = yFinal - yInicial;
+    posInicial = new PVector(xInicial*relacionWfondo, yInicial*relacionHfondo);
+    posFinal = new PVector(xFinal*relacionWfondo, yFinal*relacionHfondo);
+    ancho = (xFinal - xInicial)*relacionWfondo;
+    alto = (yFinal - yInicial)*relacionHfondo;
   }
 
   void mostrar() {
