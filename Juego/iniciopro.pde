@@ -1,6 +1,7 @@
 PImage fisura;
 PImage ciudadog;
 PImage poli;
+PImage jesusim;
 ArrayList <Obstaculo> obstaculos;
 boolean is_w = false;
 boolean is_a = false;
@@ -11,6 +12,7 @@ float relacionWfondo=0, relacionHfondo=0;
 Jugador jugador;
 Fondo fondo;
 Policia policia;
+Jesus jesus;
 
 void setup() {
   fullScreen();
@@ -18,6 +20,7 @@ void setup() {
   jugador = new Jugador();
   fondo = new Fondo();
   policia = new Policia();
+  jesus = new Jesus();
 
   fisura = loadImage("fisura.png");
 
@@ -30,7 +33,7 @@ void setup() {
   ciudadog.resize(width, height);
 
   poli = loadImage("poli.png");
-
+  jesusim = loadImage("jesus.png");
   obstaculos = new ArrayList<Obstaculo>();
   Crearmapadeobstaculos();
 }
@@ -45,6 +48,8 @@ void draw() {
   policia.actualizar();
   policia.mostrar();
 
+  jesus.actualizar();
+  jesus.mostrar();
 
   for (Obstaculo o : obstaculos) {
     o.mostrar();
