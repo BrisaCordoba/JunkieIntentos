@@ -1,26 +1,5 @@
-PImage fisura;
-PImage ciudadog;
-PImage poli;
-PImage jesusim;
-ArrayList <Obstaculo> obstaculos;
-boolean is_w = false;
-boolean is_a = false;
-boolean is_s = false;
-boolean is_d = false;
-
-float relacionWfondo=0, relacionHfondo=0;
-Jugador jugador;
-Fondo fondo;
-Policia policia;
-Jesus jesus;
-
-void setup() {
-  fullScreen();
-  //  size(800,600);
-  jugador = new Jugador();
-  fondo = new Fondo();
+fondo = new Fondo();
   policia = new Policia();
-  jesus = new Jesus();
 
   fisura = loadImage("fisura.png");
 
@@ -33,23 +12,34 @@ void setup() {
   ciudadog.resize(width, height);
 
   poli = loadImage("poli.png");
-  jesusim = loadImage("jesus.png");
+
   obstaculos = new ArrayList<Obstaculo>();
   Crearmapadeobstaculos();
 }
 void draw() {
-  println(mouseX, mouseY);
+  //  println(mouseX, mouseY);
   background(255);
   fondo.mostrar();
 
+
+
+  
   jugador.actualizar();
-  jugador.mostrar();
+  
+  boolean JugadorChoca = false;
+  for (Obstaculo o : obstaculos) {
+    JugadorChoca = jugador.colisionaObs(o)||JugadorChoca;
+       if ( jugador.colisionaObs(o)) o.c= color(0); //println(jugador.pos.x, jugador.pos.y,jugador.ancho, jugador.alto, o.posInicial.x, o.posInicial.y );
+  }
+  if (JugadorChoca) jugador.pos.sub(jugador.vel);
+  
+  jugador.mostrar(JugadorChoca);
+
+
+
 
   policia.actualizar();
   policia.mostrar();
-
-  jesus.actualizar();
-  jesus.mostrar();
 
   for (Obstaculo o : obstaculos) {
     o.mostrar();
@@ -102,4 +92,3 @@ void   Crearmapadeobstaculos() {
   obstaculos.add(new Obstaculo(773, 819, 946, 927));
   obstaculos.add(new Obstaculo(1046, 819, 1135, 927));
 }
-
