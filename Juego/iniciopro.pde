@@ -1,4 +1,22 @@
-fondo = new Fondo();
+PImage fisura;
+PImage ciudadog;
+PImage poli;
+ArrayList <Obstaculo> obstaculos;
+boolean is_w = false;
+boolean is_a = false;
+boolean is_s = false;
+boolean is_d = false;
+
+float relacionWfondo=0, relacionHfondo=0;
+Jugador jugador;
+Fondo fondo;
+Policia policia;
+
+void setup() {
+  fullScreen();
+   //size(800,600);
+  jugador = new Jugador();
+  fondo = new Fondo();
   policia = new Policia();
 
   fisura = loadImage("fisura.png");
@@ -36,8 +54,7 @@ void draw() {
   jugador.mostrar(JugadorChoca);
 
 
-
-
+  
   policia.actualizar();
   policia.mostrar();
 
